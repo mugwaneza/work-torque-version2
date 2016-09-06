@@ -1,0 +1,48 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                            controllers.Application.index()
+
+POST        /login                       controllers.Application.postLogin()
+GET         /logout                      controllers.Application.logout()
+
+GET         /power                       controllers.Power.show_powerForm()
+POST        /power/sell_Power            controllers.Power.sell_Power()
+
+GET         /airtime                     controllers.Application.profile()
+POST        /airtime/sell_airtime        controllers.Application.sell_airtime()
+
+GET         /store                       controllers.Store.show_storeForm()
+POST        /store/recharge              controllers.Store.recharge_store()
+
+GET         /add/airtel/form             controllers.Application.AddAirtel()
+POST        /save/airtel                 controllers.Application.saveAirtel()
+GET         /balance                     controllers.Store.ShowBalance()
+
+GET         /mtn/:id                         controllers.Application.MTNHistoryAirtime(id : Long)
+
+GET         /delete/:id                  controllers.Application.delete(id : Long)
+GET     /thingEdit/:id 				controllers.Application.thingEdit(id: Long)
+GET         /edit/:id                  controllers.Application.EditMtn(id :Long)
+POST    /student/update/:id              controllers.Application.update(id:Long)
+
+
+GET         /tigo                        controllers.Application.TigoHistoryAirtime()
+GET         /airtel                      controllers.Application.AirtelHistoryAirtime()
+
+GET         /electricity                 controllers.Power.showHistoryPower()
+
+# Authentication
+GET         /supervisor                  controllers.Session.login()
+POST        /supervisor/                 controllers.Session.authenticate()
+GET         /logout                      controllers.Session.logout()
+GET         /fill                        controllers.Signup.register()
+POST        /register                    controllers.Signup.registerSubmition()
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                controllers.Assets.at(path="/public", file)
